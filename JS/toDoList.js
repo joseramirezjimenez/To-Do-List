@@ -19,22 +19,35 @@ function createListElement() {
     //Clear out the text input after we create our new list item
     input.value = "";
 
-//Function to handle showing a list item as complete
-function markDone() {
-    //If the li does not have a class "done" applied to it, it will be applied. If it does, it will be taken off
-    li.classList.toggle("done");
-}
+    //Function to handle showing a list item as complete
+    function markDone() {
+        //If the li does not have a class "done" applied to it, it will be applied. If it does, it will be taken off
+        li.classList.toggle("done");
+    }
 
-li.addEventListener("click", markDone);
+    li.addEventListener("click", markDone);
 
+    //Create the delete button that will be added to out list item
+    var deleteButton = document.createElement("button");
+    //Give the button the text of X
+    deleteButton.innerText = "X";
+    //Add the button as a child of the li
+    li.appendChild(deleteButton);
+    
+    //Function will be called whenever the delete button is clicked
+    function deleteListItem() {
+        //Add the delete class to the list item
+        li.classList.add("delete");
+    }
 
+    deleteButton.addEventListener("click", deleteListItem);
 }
 
 //This is going to be used to create a list element when the submit button is tapped
 function createListItemSubmitButton() {
     //Check to make sure our input actually has some text. An empty string will have a length of 0
     if (input.value > 0) {
-    createListElement();
+        createListElement();
     }
 }
 
@@ -44,7 +57,7 @@ function createListItemEnterKey() {
 
     //Create a new list item if there is text in the input field and the enter key is pressed
     if (input.value.length > 0 && event.keyCode === 13) {
-        createListElement(); 
+        createListElement();
     }
 }
 

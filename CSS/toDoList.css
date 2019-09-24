@@ -55,3 +55,38 @@ input {
     background-color: darkblue;
 }
 
+/* Styles for the ul and lis */
+
+ul {
+    margin-top: 20px;
+    text-align: left;
+}
+
+li {
+    list-style: none;
+    border: 2px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: white;
+    background-color: gray;
+    font-weight: bold; 
+
+    transition: all 0.75s ease;
+    /* Webkit, for Safari and Opera 12 */
+    -webkit-transition: all 0.75s ease;
+    /* Webkit, for Firefox */
+    -moz-transition: all 0.75s ease;
+    /* Opera 11 */
+    -o-transition: all 0.75s ease;
+}
+
+li:hover {
+    background-color: blueviolet;
+}
+
+/* Styles for when a list item is marked done */
+
+.done {
+    background-color: gold !important;
+}
+
